@@ -168,6 +168,8 @@ multiline
     assert_enhance 'ABC, DEF, GHI', '<span class="caps">ABC</span>, <span class="caps">DEF</span>,&nbsp;<span class="caps">GHI</span>'
     assert_enhance 'HTML/XHTML', '<span class="caps">HTML</span>/<span class="caps">XHTML</span>'
     assert_enhance 'UNDERSCORE_DELIMITED_CAPS', '<span class="caps">UNDERSCORE_DELIMITED_CAPS</span>'
+    assert_enhance '(WHEEE)', '(<span class="caps">WHEEE</span>)'
+    assert_enhance '&#8220;WHEEE&#8221;', '<span class="dquo">&#8220;</span><span class="caps">WHEEE</span>&#8221;'
   end
 
   def test_should_only_replace_three_or_more_caps
