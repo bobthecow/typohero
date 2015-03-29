@@ -181,6 +181,7 @@ multiline
   def test_should_not_break_caps_with_apostrophes
     assert_enhance "JIMMY'S", '<span class="caps">JIMMY&#8217;S</span>'
     assert_enhance "<i>D.O.T.</i>HE34T<b>RFID</b>", '<i><span class="caps">D.O.T.</span></i><span class="caps">HE34T</span><b><span class="caps">RFID</span></b>'
+    assert_enhance 'D.O.T.S. or NOT.', '<span class="caps">D.O.T.S.</span> or <span class="caps">NOT</span>.'
   end
 
   def test_should_not_break_caps_with_ampersands
