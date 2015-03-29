@@ -153,6 +153,7 @@ multiline
     assert_enhance 'One &amp; two', 'One <span class="amp">&amp;</span>&nbsp;two'
     assert_enhance 'One &#38; two', 'One <span class="amp">&amp;</span>&nbsp;two'
     assert_enhance 'One&nbsp;&amp;&nbsp;two', 'One&nbsp;<span class="amp">&amp;</span>&nbsp;two'
+    assert_enhance '(& what)', '(<span class="amp">&amp;</span>&nbsp;what)'
   end
 
   def test_should_ignore_special_amps
