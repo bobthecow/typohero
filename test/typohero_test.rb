@@ -161,11 +161,15 @@ multiline
   end
 
   def test_should_replace_caps
-    assert_enhance "A message from KU", 'A message from&nbsp;<span class="caps">KU</span>'
     assert_enhance "DG-1000", '<span class="caps"><span class="nobr">DG-1000</span></span>'
-    assert_enhance 'Replace text <a href=".">IN</a> tags', 'Replace text <a href="."><span class="caps">IN</span></a>&nbsp;tags'
-    assert_enhance 'Replace text <i>IN</i> tags', 'Replace text <i><span class="caps">IN</span></i>&nbsp;tags'
-    assert_enhance 'AB, CD, EF', '<span class="caps">AB</span>, <span class="caps">CD</span>,&nbsp;<span class="caps">EF</span>'
+    assert_enhance 'Replace text <a href=".">INSIDE</a> tags', 'Replace text <a href="."><span class="caps">INSIDE</span></a>&nbsp;tags'
+    assert_enhance 'Replace text <i>INSIDE</i> tags', 'Replace text <i><span class="caps">INSIDE</span></i>&nbsp;tags'
+    assert_enhance 'ABC, DEF, GHI', '<span class="caps">ABC</span>, <span class="caps">DEF</span>,&nbsp;<span class="caps">GHI</span>'
+  end
+
+  def test_should_only_replace_three_or_more_caps
+    assert_enhance "A message from KU", 'A message from&nbsp;KU'
+    assert_enhance 'AB, CD, EF', 'AB, CD,&nbsp;EF'
   end
 
   def test_should_ignore_special_case_caps
